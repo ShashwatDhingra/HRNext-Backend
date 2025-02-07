@@ -3,11 +3,13 @@ const { log } = require('../utils/utils');
 
 const mongoPass = process.env.MONGO_PASS
 
-const mongoURI = '';
+const dbName = 'HRNext';
+const mongoURI = `mongodb+srv://user:${mongoPass}@cluster0.qk20j.mongodb.net/${dbName}`;
 
 const dbConnection = mongoose.createConnection(mongoURI).on('open', () => {
     log('Connection established with MONGO DB.')
-}).on('error', ()=>{
+}).on('error', (e)=>{
+    log(e)
     log("Error while connecting to MONGO DB.")
 })
 

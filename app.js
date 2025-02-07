@@ -1,15 +1,15 @@
+// Initial Configurations
+require('dotenv').config()
+
 // Imports
 const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const cors = require('cors')
+const { log } = require('./utils/utils')
 
-// Route Import
+// Routes Import
 const authRoute = require('./routes/auth.route')
-
-// Configurations
-require('dotenv').config()
-
 
 const app = express()
 app.use(bodyParser.json())
